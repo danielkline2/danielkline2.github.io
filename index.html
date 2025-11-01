@@ -51,7 +51,7 @@
                 <a href="#" class="flex items-center space-x-3" id="nav-logo">
                     <!-- Using placeholder for your icon.png -->
                     <img class="h-10 w-10 rounded-lg" 
-                         src="https://placehold.co/64x64/4A044E/EA580C?text=P&font=inter" 
+                         src="assets/logoSmall.png" 
                          alt="Poli App Icon"
                          onerror="this.src='https://placehold.co/64x64/4A044E/EA580C?text=P&font=inter'; this.onerror=null;">
                     <span class="text-2xl font-bold text-white">Poli</span>
@@ -59,8 +59,8 @@
                 
                 <!-- Navigation Links -->
                 <div class="flex items-center space-x-6">
-                    <a href="#" id="nav-home" class="text-gray-300 hover:text-white transition duration-150 nav-link-active" aria-current="page">Showcase</a>
-                    <a href="#" id="nav-privacy" class="text-gray-300 hover:text-white transition duration-150">Privacy Policy</a>
+                    <a href="#" id="nav-home" class="text-gray-300 hover:text-white transition duration-150" aria-current="page">Showcase</a>
+                    <a href="#" id="nav-privacy" class="text-gray-300 hover:text-white transition duration-150 nav-link-active">Privacy Policy</a>
                 </div>
             </div>
         </nav>
@@ -69,7 +69,7 @@
     <!-- Main Content -->
     <main>
         <!-- Showcase Screen -->
-        <div id="showcase-screen" class="">
+        <div id="showcase-screen" class="hidden">
 
             <!-- Hero Section -->
             <section class="relative overflow-hidden bg-gray-900 pt-24 pb-20 sm:pt-32 sm:pb-28">
@@ -98,7 +98,7 @@
                     <!-- Hero Image (Splash Screen) -->
                     <div class="lg:w-1/2 flex justify-center mt-10 lg:mt-0">
                         <img class="w-auto h-[500px] sm:h-[600px] object-cover rounded-3xl shadow-2xl" 
-                             src="https://placehold.co/400x700/4A044E/FFFFFF?text=Poli+App+Splash&font=inter" 
+                             src="assets/new-splash.png" 
                              alt="Poli app splash screen"
                              onerror="this.src='https://placehold.co/400x700/4A044E/FFFFFF?text=Poli+App+Splash&font=inter'; this.onerror=null;">
                     </div>
@@ -147,12 +147,12 @@
                     <div class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                         <!-- Image 1 -->
                         <img class="rounded-2xl shadow-lg border-4 border-poli-light-purple/50" 
-                             src="https://placehold.co/300x600/6B21A8/FFFFFF?text=Find+Representative&font=inter" 
+                             src="assets/iPhoneShumer.png" 
                              alt="Poli app - Find Your Representative screen"
                              onerror="this.src='https://placehold.co/300x600/6B21A8/FFFFFF?text=Find+Representative&font=inter'; this.onerror=null;">
                         <!-- Image 2 -->
                         <img class="rounded-2xl shadow-lg border-4 border-poli-light-purple/50" 
-                             src="https://placehold.co/300x600/6B21A8/FFFFFF?text=Generate+Message&font=inter" 
+                             src="assets/iPhoneEmail.png" 
                              alt="Poli app - Generating message screen"
                              onerror="this.src='https://placehold.co/300x600/6B21A8/FFFFFF?text=Generate+Message&font=inter'; this.onerror=null;">
                         <!-- Image 3 (iPad) - Spanning 2 cols on small, 1 on large -->
@@ -167,7 +167,7 @@
         </div>
 
         <!-- Privacy Policy Screen -->
-        <div id="privacy-screen" class="hidden">
+        <div id="privacy-screen" class="">
             <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
                 <h1 class="text-4xl font-extrabold text-white mb-6">Privacy Policy for Poli</h1>
                 <p class="text-gray-400 mb-8">Last Updated: November 1, 2025</p>
@@ -213,7 +213,7 @@
                     <p>The App is not intended for use by anyone under the age of 18. We do not knowingly collect personal information from people under 18. If we learn that we have collected personal information from anyone under 18, we will take steps to delete such information.</p>
 
                     <h2 class="text-2xl font-bold text-white">6. Changes to This Privacy Policy</h2>
-                    <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page. You are advised to review this Privacy Policy periodically for any changes.</p>
+                    <p>We may update this Privacy Policy from time toS time. We will notify you of any changes by posting the new Privacy Policy on this page. You are advised to review this Privacy Policy periodically for any changes.</p>
 
                     <h2 class="text-2xl font-bold text-white">7. Contact Us</h2>
                     <p>If you have any questions about this Privacy Policy, please contact us at: klined49@gmail.com</p>
@@ -292,10 +292,11 @@
                 }
             });
 
-            // Show home screen by default
-            showScreen('home');
+            // Show privacy screen by default
+            showScreen('privacy');
         });
     </script>
 
 </body>
 </html>
+
