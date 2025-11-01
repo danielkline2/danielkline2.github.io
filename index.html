@@ -61,6 +61,7 @@
                 <div class="flex items-center space-x-6">
                     <a href="#home" id="nav-home" class="text-gray-300 hover:text-white transition duration-150 nav-link-active" aria-current="page">Showcase</a>
                     <a href="#privacy" id="nav-privacy" class="text-gray-300 hover:text-white transition duration-150">Privacy Policy</a>
+                    <a href="#support" id="nav-support" class="text-gray-300 hover:text-white transition duration-150">Support</a>
                 </div>
             </div>
         </nav>
@@ -156,7 +157,7 @@
                              alt="Poli app - Generating message screen"
                              onerror="this.src='https://placehold.co/300x600/6B21A8/FFFFFF?text=Generate+Message&font=inter'; this.onerror=null;">
                         <!-- Image 3 (iPad) - Spanning 2 cols on small, 1 on large -->
-                        <img class="sm:col-span-2 lg:col-span-1 rounded-2xl shadow-lg border-4 border-poli-light-purple/50 object-cover w-full h-full" 
+                        <img class="sm:col-span-2 lg:col-span-1 rounded-2xl shadow-lg border-4 border-poli-light-purple/50 object-contain w-full h-full" 
                              src="assets/onSideIPADVid.png" 
                              alt="Poli app - Learn screen on tablet"
                              onerror="this.src='https://placehold.co/400x300/6B21A8/FFFFFF?text=Learn+About+Issues&font=inter'; this.onerror=null;">
@@ -221,6 +222,26 @@
             </div>
         </div>
 
+        <!-- Support Screen -->
+        <div id="support-screen" class="hidden">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <h1 class="text-4xl font-extrabold text-white mb-6">Contact & Support</h1>
+                <p class="text-lg text-gray-300 mb-8">
+                    Have questions, feedback, or need help with the Poli app? Please don't hesitate to reach out.
+                </p>
+                <div class="bg-gray-900 p-8 rounded-2xl shadow-lg border border-white/10">
+                    <p class="text-gray-300 mb-4">You can send an email directly to:</p>
+                    <a href="mailto:klined49@gmail.com" 
+                       class="inline-block bg-poli-orange text-white text-lg font-semibold py-3 px-8 rounded-lg shadow-lg hover:bg-poli-dark-orange transition duration-200">
+                        klined49@gmail.com
+                    </a>
+                    <p class="text-gray-400 mt-6 text-sm">
+                        Clicking this link will open your default email application.
+                    </p>
+                </div>
+            </div>
+        </div>
+
     </main>
 
     <!-- Footer -->
@@ -230,6 +251,7 @@
             <div class="flex space-x-6 mt-4 sm:mt-0">
                 <a href="#home" class="text-gray-400 hover:text-white" id="footer-home">Showcase</a>
                 <a href="#privacy" class="text-gray-400 hover:text-white" id="footer-privacy">Privacy Policy</a>
+                <a href="#support" class="text-gray-400 hover:text-white" id="footer-support">Support</a>
             </div>
         </div>
     </footer>
@@ -239,8 +261,10 @@
         document.addEventListener('DOMContentLoaded', () => {
             const showcaseScreen = document.getElementById('showcase-screen');
             const privacyScreen = document.getElementById('privacy-screen');
+            const supportScreen = document.getElementById('support-screen');
             const navHome = document.getElementById('nav-home');
             const navPrivacy = document.getElementById('nav-privacy');
+            const navSupport = document.getElementById('nav-support');
 
             // All links that navigate to 'home'
             const homeLinks = [
@@ -255,22 +279,35 @@
                 document.getElementById('footer-privacy')
             ];
 
+            // All links that navigate to 'support'
+            const supportLinks = [
+                document.getElementById('nav-support'),
+                document.getElementById('footer-support')
+            ];
+
             function showScreen(screenName) {
                 // Hide all screens
                 showcaseScreen.classList.add('hidden');
                 privacyScreen.classList.add('hidden');
+                supportScreen.classList.add('hidden');
                 
                 // Remove active styles from nav links
                 navHome.classList.remove('nav-link-active');
                 navPrivacy.classList.remove('nav-link-active');
+                navSupport.classList.remove('nav-link-active');
                 navHome.removeAttribute('aria-current');
                 navPrivacy.removeAttribute('aria-current');
+                navSupport.removeAttribute('aria-current');
 
                 // Show the target screen
                 if (screenName === 'privacy') {
                     privacyScreen.classList.remove('hidden');
                     navPrivacy.classList.add('nav-link-active');
                     navPrivacy.setAttribute('aria-current', 'page');
+                } else if (screenName === 'support') {
+                    supportScreen.classList.remove('hidden');
+                    navSupport.classList.add('nav-link-active');
+                    navSupport.setAttribute('aria-current', 'page');
                 } else {
                     // Default to home
                     showcaseScreen.classList.remove('hidden');
@@ -283,6 +320,8 @@
                 const hash = location.hash;
                 if (hash === '#privacy') {
                     showScreen('privacy');
+                } else if (hash === '#support') {
+                    showScreen('support');
                 } else {
                     // Default to home for '#home' or empty hash
                     showScreen('home');
@@ -290,8 +329,6 @@
             }
 
             // Add click listeners to all links
-            // These listeners will just update the hash.
-            // The 'hashchange' event will handle showing the screen.
             homeLinks.forEach(link => {
                 if (link) {
                     link.href = '#home'; // Ensure href is set
@@ -302,6 +339,13 @@
             privacyLinks.forEach(link => {
                 if (link) {
                     link.href = '#privacy'; // Ensure href is set
+                    link.addEventListener('click', () => window.scrollTo(0, 0)); // Scroll to top on click
+                }
+            });
+
+            supportLinks.forEach(link => {
+                if (link) {
+                    link.href = '#support'; // Ensure href is set
                     link.addEventListener('click', () => window.scrollTo(0, 0)); // Scroll to top on click
                 }
             });
